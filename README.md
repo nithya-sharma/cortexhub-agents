@@ -23,13 +23,12 @@ A friendly, context-aware chatbot designed to handle broad conversations with me
 ---
 
 ### 2. Image Document Analyzer (image_analyzer.py)
-A multimodal vision agent that extracts structured information from uploaded government ID images using LLMs.
+Lightweight LangChain agent using a vision-capable LLM (LLaMA3-11B Vision via Ollama) to describe uploaded images in natural language..
 
 - **Model:** llama3.2-vision:11b
-- **Input:** UploadFile (image) → encoded to base64 with MIME prefix
-- **Prompt Type:** Multimodal input (text + image_url) using HumanMessage
+- **Input:** Converts the image to base64 with MIME type prefix
 - **Output:** Descriptive analysis of the uploaded image
-- **Use Case:** Parsing a government-issued ID (like Aadhaar, PAN, or license) to describe the image contents in natural language (not JSON extraction in current version).
+- **Use Case:** Image Understanding for Document & Scene Analysis
 ---
 
 ### 3. AI Course Builder (`build_course`)
