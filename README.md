@@ -1,16 +1,16 @@
-# 🧠 CortexHub: Modular LLM Agent Suite
+# CortexHub: Modular LLM Agent Suite
 
 A powerful, extensible assistant suite built with open-source LLMs via Ollama and LangChain. CortexHub hosts four intelligent agents that specialize in general chat, image document parsing, course generation, and SQL support — each with persistent session memory and strict role boundaries.
 
 ---
 
-## 🚀 Key Modules
+## Key Modules
 
 CortexHub is composed of four specialized agents:
 
 ---
 
-### 1. 🗣️ General Chat Assistant (`chat_response`)
+### 1. General Chat Assistant (`chat_response`)
 
 A friendly, context-aware chatbot designed to handle broad conversations with memory retention and clarification-first behavior.
 
@@ -22,18 +22,17 @@ A friendly, context-aware chatbot designed to handle broad conversations with me
 
 ---
 
-### 2. 🖼️ Image Document Analyzer (`image_analyzer`)
+### 2. Image Document Analyzer (image_analyzer.py)
+A multimodal vision agent that extracts structured information from uploaded government ID images using LLMs.
 
-A vision-powered agent that parses uploaded government ID images and returns structured data.
-
-- **Model:** `gemma3:4b` (multimodal)
-- **Input:** Base64-encoded image
-- **Output:** JSON object with fields like `name`, `dob`, `gender`, `address`
-- **Use Case:** Aadhar card, PAN card, driver’s license data extraction
-
+- **Model:** llama3.2-vision:11b
+- **Input:** UploadFile (image) → encoded to base64 with MIME prefix
+- **Prompt Type:** Multimodal input (text + image_url) using HumanMessage
+- **Output:** Descriptive analysis of the uploaded image
+- **Use Case:** Parsing a government-issued ID (like Aadhaar, PAN, or license) to describe the image contents in natural language (not JSON extraction in current version).
 ---
 
-### 3. 📚 AI Course Builder (`build_course`)
+### 3. AI Course Builder (`build_course`)
 
 Reads uploaded files (PDF, DOCX, TXT) and constructs a course plan with modules, duration, and evaluation strategies.
 
@@ -46,7 +45,7 @@ Reads uploaded files (PDF, DOCX, TXT) and constructs a course plan with modules,
 
 ---
 
-### 4. 🧾 SQL Expert Bot (`answer_sql`)
+### 4. SQL Expert Bot (`answer_sql`)
 
 A strict SQL-only agent that assists with SQL queries and syntax while refusing to answer unrelated questions.
 
@@ -58,7 +57,7 @@ A strict SQL-only agent that assists with SQL queries and syntax while refusing 
 
 ---
 
-## 🛠️ Technologies
+## Technologies
 
 - **LangChain** (Chains, Prompts, Memory)
 - **Ollama** (local open-source LLM inference)
